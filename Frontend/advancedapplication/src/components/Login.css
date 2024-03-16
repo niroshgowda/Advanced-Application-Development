@@ -1,0 +1,81 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  background-size: cover;
+  height: 90vh;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  height: 100%;
+}
+
+.login, .register {
+  width: 100%; 
+  float: none; 
+  height: auto; 
+  border-radius: 10px; 
+  text-align: center;
+  padding-top: 50px; 
+}
+
+.login {
+  background-color: #fafafa;
+}
+
+.register {
+  background-image: linear-gradient(135deg, #9b8ba2 5%, #cf87dc 95%);
+  color: #fff;
+}
+
+.login h1 {
+  margin-bottom: 20px; 
+  font-size: 2em;
+}
+
+.register h2 {
+  margin: 20px 0; 
+  font-size: 3em; 
+}
+
+input[type="email"], input[type="password"] {
+  width: 80%; 
+  max-width: 300px; 
+  padding: 10px;
+  margin: 0 auto 20px; 
+  border: none;
+  background-color: #eeeeef;
+}
+
+.login button, .register button {
+  width: 80%; 
+  max-width: 200px; 
+  margin: 20px auto; 
+}
+
+@media (min-width: 768px) {
+  .login, .register {
+    width: 50%;
+    float: left; 
+    height: 500px; 
+    padding-top: 100px;
+  }
+
+  .login {
+    border-radius: 10px 0 0 10px; 
+  }
+
+  .register {
+    border-radius: 0 10px 10px 0; 
+  }
+
+  .container {
+    width: 90%; 
+  }
+}

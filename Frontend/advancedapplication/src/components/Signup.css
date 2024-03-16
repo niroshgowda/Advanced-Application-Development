@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  background-size: cover;
+  height: 90vh;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  height: 100%;
+}
+
+.signup {
+  width: 100%;
+  background-color: #fafafa;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.signup h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.signup select,
+.signup input[type="text"],
+.signup input[type="email"],
+.signup input[type="tel"],
+.signup input[type="password"] {
+  width: 80%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 10px auto;
+  border: none;
+  background-color: #eeeeef;
+}
+
+.signup button {
+  width: 80%;
+  max-width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  border: none;
+  background-color: #908194;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.signup button:hover {
+  width: 97%;
+  font-size: 22px;
+  border-radius: 5px;
+}
+.yoga
+{
+  position: absolute;
+  right: 8%;
+
+}
+
+
+@media (min-width: 768px) {
+  .signup {
+    width: 50%;
+    float: left;
+    height: 600px;
+    padding-top: 100px;
+  }
+}
