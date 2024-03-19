@@ -109,3 +109,15 @@
       margin: 0 auto;
     }
   }
+  .jobs-list-container .rating {
+    margin-top: 10px;
+  }
+  
+  .jobs-list-container .rating .star-filled {
+    color: #ffd700; 
+  }
+  
+  .jobs-list-container .rating .star-empty {
+    color: #ccc; 
+  }
+  

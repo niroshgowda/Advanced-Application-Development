@@ -13,36 +13,42 @@ const jobs = [
     image: serenity,
     details:
       "Emphasizes programs, guided by experienced instructors, harness yoga's healing potential for holistic well-being.",
+    rating: 4, // Rating out of 5
   },
   {
     title: "Elevate Yoga Academy",
     image: eternal,
     details:
       "Responsible for collecting, analyzing and interpreting large data sets to help organizations make better decisions.",
+    rating: 5,
   },
   {
     title: "Integral Yoga Institute",
     image: integral,
     details:
       "Emphasizes the integration of yoga into daily life for physical, mental, and spiritual well-being.",
+    rating: 4,
   },
   {
     title: "Harmony Haven Yoga Retreat ",
     image: harmony,
     details:
       "Ensconced in lush forests, provides immersive yoga retreats for rejuvenation and self-discovery, offering guests daily yoga, meditation, nourishing cuisine, and tranquil nature escapes.",
+    rating: 4.5,
   },
   {
     title: "Kripalu Center for Yoga & Health",
     image: kripalu,
     details:
       "Known for its immersive yoga retreats and wellness programs,focuses on holistic health and personal transformation, offering guests transformative experiences in nurturing environments.",
+    rating: 5,
   },
   {
     title: "ZenVibe Yoga Academy ",
     image: zenvibe,
     details:
       "It offers a range of yoga classes, workshops, and retreats aimed at promoting inner peace and holistic wellness.",
+    rating: 3.5,
   },
 ];
 
@@ -67,7 +73,11 @@ const Job = () => {
         <img src={job.image} alt={job.title} />
         <h3 className="job-title">{job.title}</h3>
         <div className="details">{job.details}</div>
-        <a href={job.link} className="details-btn">More Details</a>
+        <div className="rating">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span key={i} className={i < job.rating ? "star-filled" : "star-empty"}>&#9733;</span>
+          ))}
+        </div>
       </div>
     ));
   };
