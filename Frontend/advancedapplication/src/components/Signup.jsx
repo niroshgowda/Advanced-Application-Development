@@ -1,78 +1,97 @@
 import React, { useState } from 'react';
 import './Signup.css';
-import { Link } from 'react-router-dom';
+import{Link } from 'react-router-dom'
 
-const SignupPage = () => {
-    const [userType, setUserType] = useState('user'); // Default to 'user'
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [mobileNumber, setMobileNumber] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+export default function SignUp() {
+  const [userType, setUserType] = useState('');
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleUserTypeChange = (event) => {
-        setUserType(event.target.value);
-    };
+  const handleSignUp = (e) => {
+    e.preventDefault();
 
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    };
+    if (!userType || !email || !username || !mobileNumber || !password || !confirmPassword) {
+      alert('Please fill in all fields.');
+      return;
+    }
+  
+    if (password !== confirmPassword) {
+      alert('Passwords do not match.');
+      return;
+    }
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    };
+    console.log('User Type:', userType);
+    console.log('Email:', email);
+    console.log('Username:', username);
+    console.log('Mobile Number:', mobileNumber);
+    console.log('Password:', password);
+    console.log('Confirm Password:', confirmPassword);
+    
+    setUserType('');
+    setEmail('');
+    setUsername('');
+    setMobileNumber('');
+    setPassword('');
+    setConfirmPassword('');
+  };
 
-    const handleMobileNumberChange = (event) => {
-        setMobileNumber(event.target.value);
-    };
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
-
-    const handleConfirmPasswordChange = (event) => {
-        setConfirmPassword(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault(); 
-        if (name.trim() === '' || email.trim() === '' || mobileNumber.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
-            alert('Please fill in all fields.'); 
-            return;
-        }
-        if (password !== confirmPassword) {
-            alert('Passwords do not match.'); 
-            return;
-        }
-    };
-
-    return (
-        <div>
-        <img className="yoga" src="https://i.pinimg.com/564x/7d/ec/94/7dec942161c4990446a3d47cc06df988.jpg" height={500} />
-        
-        <div className="container1">
-            <div className="body1">
-                <div className="signup">
-                    <div className="container1">
-                        <h1>Sign Up</h1>
-                        <select value={userType} onChange={handleUserTypeChange}>
-                            <option value=" ">Enter User or Admin</option>
-                            <option value="user">User</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                        <input type="email" placeholder="Enter Email" value={email} onChange={handleEmailChange} />
-                        <input type="text" placeholder="Enter Name" value={name} onChange={handleNameChange} />
-                        <input type="tel" placeholder="Enter Mobilenumber" value={mobileNumber} onChange={handleMobileNumberChange} />
-                        <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-                        <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={handleConfirmPasswordChange} /><br />
-                        <p>Already a user? <Link to="/"> Login</Link></p>
-                        <button onClick={handleSubmit}>Sign Up</button>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div className='nirosh'>
+    <div className="sign-up-page">
+      <div className="form">
+        <div className='sign-up-text'>
+          <p>Sign Up</p>
         </div>
-        </div>
-    );
-};
-
-export default SignupPage;
+        <form className="sign-up-form" onSubmit={handleSignUp}>
+          <select
+            value={userType}
+            onChange={(e) => setUserType(e.target.value)}
+            placeholder="Select User/Admin"
+          >
+            <option value="">Select User/Admin</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </select>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="tel"
+            placeholder="Mobile Number"
+            value={mobileNumber}
+            onChange={(e) => setMobileNumber(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <button type="submit"><Link to="/">Sign Up</Link></button>
+          <p className="message">
+            Already registered? <Link to="/login">Login</Link>
+          </p>
+        </form>
+      </div>
+    </div>
+    </div>
+  );
+}

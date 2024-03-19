@@ -2,52 +2,55 @@ import React, { useState } from 'react';
 import './Login.css';
 import {Link} from 'react-router-dom'
 
-const LoginPage = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    };
+export default function Login() {
+  const [loginUsername, setLoginUsername] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (loginUsername.trim() === '') {
+      alert('Please enter your username.');
+      return;
+    }
+    if (loginPassword.trim() === '') {
+      alert('Please enter your password.');
+      return;
+    }
+    console.log('Username:', loginUsername);
+    console.log('Password:', loginPassword);
+    setLoginUsername('');
+    setLoginPassword('');
+  };
 
-    const handleSubmit = (event) => {
-        event.preventDefault(); 
-        if (email.trim() === '' || password.trim() === '') {
-            alert('Please enter both email and password.'); 
-            return;
-        }
-    };
-
-    return (
-        <div className="container">
-        <div className="body">
-            <div className="login">
-                <div className="container">
-                    <h1>Log in</h1>
-                    <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
-                    <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} /><br />
-                    <button onClick={handleSubmit}>Log in</button>
-                </div>
-            </div>
-            <div className="register">
-                <div className="container">
-                    <img src="https://st.depositphotos.com/1067125/1852/v/450/depositphotos_18527291-stock-illustration-beautiful-lotus-flower-and-yoga.jpg" height={100} alt="Welcome Image" />
-                    <h2>Welcome!</h2> 
-                    <p>Enter your personal details and start journey with us</p>
-                    <button><Link to='/signup'>Sign Up </Link><i className="fas fa-arrow-circle-right"></i></button>
-                </div>
-            </div>  
+  return (
+    <div className='nirosh'>
+    <div className="login-page">
+      <div className="form">
+      <div className='login-text'>
+      <p>Login</p>
+      </div>
+        <form className="login-form" onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={loginUsername}
+            onChange={(e) => setLoginUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={loginPassword}
+            onChange={(e) => setLoginPassword(e.target.value)}
+          />
+          <button type="submit"><Link to="/">Login</Link></button>
+          <p className="message">
+            Not registered? <Link to="/signup">Create an account</Link>
+          </p>
+        </form>
         </div>
-        </div>
-
-
-
-
-    );
-};
-
-export default LoginPage;
+      </div>
+    </div>
+    
+  );
+}
