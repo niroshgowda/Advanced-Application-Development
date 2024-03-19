@@ -10,8 +10,8 @@ export default function Footer() {
     <footer>
     <div class="container">
     
-    <div class="footer-content">
-      <h3>ContactUs</h3>
+    <div class="footer-content1">
+      
       <p>Email:Info@example.com</p>
       <p>Phone:+121 56556 565556</p>
       <p>Address:Your Address 123 street</p>

@@ -6,6 +6,7 @@ import integral from '../assets/integral.jpg';
 import harmony from '../assets/harmony.jpeg';
 import kripalu from '../assets/kripalu.jpg';
 import zenvibe from '../assets/zenvibe.jpg';
+import Dashboard from './Dashboard';
 
 const jobs = [
   {

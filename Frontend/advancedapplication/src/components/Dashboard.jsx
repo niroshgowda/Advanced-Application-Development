@@ -1,6 +1,7 @@
 import React from 'react';
 import './Dashboard.css';
 import adminlogo from '../assets/adminlogo.png';
+import {Link} from 'react-router-dom'
 
 class Sidebar extends React.Component {
   render() {
@@ -10,11 +11,10 @@ class Sidebar extends React.Component {
           <img src={adminlogo} alt="Admin Logo" />
         </div>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Academy</a></li>
-          <li><a href="#">Classes</a></li>
-          <li><a href="#">Course</a></li>
-          <li><a href="#">Logout</a></li>
+          <li><Link to="/profile">Profile</Link></li>
+          <li><a href="#">Users</a></li>
+          <li><a href="#">Add Academy</a></li>
+          <li><Link to="/academy1">Show Academies</Link></li>
         </ul>
       </div>
     );
@@ -22,14 +22,7 @@ class Sidebar extends React.Component {
 }
 
 class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      numberOfUsers: 10, 
-      numberOfAcademies: 6,
-    };
-  }
+  
 
   handleAdd = () => {
     const newItem = {
@@ -58,29 +51,6 @@ class Dashboard extends React.Component {
         <Sidebar />
         <div className="main-content">
           <h1>Welcome to the Admin Dashboard</h1>
-          <div className="stats-cards">
-            <div className="card">
-              <h2>Number of Users</h2>
-              <p>{this.state.numberOfUsers}</p>
-            </div>
-            <div className="card">
-              <h2>Number of Academies</h2>
-              <p>{this.state.numberOfAcademies}</p>
-            </div>
-          </div>
-          <div className="action-buttons">
-            <button onClick={this.handleAdd}>Add</button>
-            
-          </div>
-          <div className="item-list">
-            {this.state.items.map(item => (
-              <div key={item.id} className="item">
-                <span>{item.name}</span>
-                <button onClick={() => this.handleEdit(item.id)}>Edit</button>
-                <button onClick={() => this.handleDelete(item.id)}>Delete</button>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     );

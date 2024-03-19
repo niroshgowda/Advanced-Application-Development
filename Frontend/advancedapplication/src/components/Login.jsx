@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Login.css';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 
 export default function Login() {
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
+  const nav=useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,10 +18,14 @@ export default function Login() {
       alert('Please enter your password.');
       return;
     }
+    else{
     console.log('Username:', loginUsername);
     console.log('Password:', loginPassword);
     setLoginUsername('');
     setLoginPassword('');
+    if(loginUsername==="admin@gmail.com" && loginPassword==="adminPassword") nav("/dashboard")
+    else nav("/") 
+    }
   };
 
   return (
@@ -43,7 +48,7 @@ export default function Login() {
             value={loginPassword}
             onChange={(e) => setLoginPassword(e.target.value)}
           />
-          <button type="submit"><Link to="/">Login</Link></button>
+          <button type="submit" onClick={handleLogin}>Login</button>
           <p className="message">
             Not registered? <Link to="/signup">Create an account</Link>
           </p>

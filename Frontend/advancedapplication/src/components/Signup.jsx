@@ -22,7 +22,7 @@ export default function SignUp() {
       alert('Passwords do not match.');
       return;
     }
-
+else{
     console.log('User Type:', userType);
     console.log('Email:', email);
     console.log('Username:', username);
@@ -36,6 +36,8 @@ export default function SignUp() {
     setMobileNumber('');
     setPassword('');
     setConfirmPassword('');
+   
+}
   };
 
   return (

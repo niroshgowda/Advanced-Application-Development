@@ -10,6 +10,8 @@ import Classes1 from './components/Classes1'
 
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
+import Profile from './components/Profile';
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
     <Route path='/courses1' element={<Courses1/>}/>
     <Route path='/classes1' element={<Classes1/>}/>
     <Route path='/dashboard' element={<Dashboard/>}/>
+    <Route path='/profile' element={<Profile/>}/>
     </Routes>
     </>
   );
