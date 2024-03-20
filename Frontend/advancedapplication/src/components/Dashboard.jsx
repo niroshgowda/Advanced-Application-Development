@@ -12,8 +12,8 @@ class Sidebar extends React.Component {
         </div>
         <ul>
           <li><Link to="/profile">Profile</Link></li>
-          <li><a href="#">Users</a></li>
-          <li><a href="#">Add Academy</a></li>
+          <li><Link to="/table">Users</Link></li>
+          <li><Link to="/form">Add Academy</Link></li>
           <li><Link to="/academy1">Show Academies</Link></li>
         </ul>
       </div>

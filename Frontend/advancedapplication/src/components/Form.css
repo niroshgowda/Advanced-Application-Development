@@ -1,0 +1,54 @@
+.form-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #8e4585; /* Plum color */
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 700px;
+  }
+  
+  .helloo p {
+    margin-left: 800px;
+    margin-top: 90px;
+    font-size: 40px;
+  }
+  
+  .academy-form {
+    width: 100%;
+  }
+  
+  .academy-form input[type="text"],
+  .academy-form input[type="url"] {
+    width: calc(100% - 22px); /* Adjusted for padding and border */
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .academy-form input[type="text"],
+  .academy-form input[type="url"],
+  .academy-form button {
+    border: 1px solid #8e4585; /* Plum color */
+    border-radius: 5px;
+  }
+  
+  .academy-form input[type="text"]:focus,
+  .academy-form input[type="url"]:focus {
+    outline: none;
+    border-color: #8e4585; /* Plum color */
+  }
+  
+  .academy-form button {
+    background-color: #8e4585; /* Plum color */
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 150px;
+  }
+  
+  .academy-form button:hover {
+    background-color: #a15796; /* Lighter plum color */
+  }
+  

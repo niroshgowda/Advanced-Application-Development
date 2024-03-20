@@ -94,6 +94,14 @@
     margin: 10px 0;
   }
   .main-content h1 {
-    margin-bottom: 20px; 
+    margin-top: 40px;
+    margin-left: 350px; 
+    font-size: 40px;
   }
+  .dashboard1 {
+    background-color: plum;
+    background-size: cover;
+    position: relative;
+  }
+  
     

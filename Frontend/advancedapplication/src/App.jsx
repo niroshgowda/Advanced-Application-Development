@@ -7,10 +7,11 @@ import About from './components/About'
 import Academy1 from './components/Academy1'
 import Courses1 from './components/Courses1'
 import Classes1 from './components/Classes1'
-
+import Table from './components/Table'
 import { Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Profile from './components/Profile';
+import Form from './components/Form';
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
     <Route path='/classes1' element={<Classes1/>}/>
     <Route path='/dashboard' element={<Dashboard/>}/>
     <Route path='/profile' element={<Profile/>}/>
+    <Route path='/table' element={<Table/>}/>
+    <Route path='/form' element={<Form/>}/>
+
     </Routes>
     </>
   );
