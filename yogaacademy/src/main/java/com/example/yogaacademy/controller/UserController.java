@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,6 @@ import com.example.yogaacademy.dto.UpdateRequest;
 import com.example.yogaacademy.model.User;
 import com.example.yogaacademy.service.UserService;
 
-import io.micrometer.common.lang.NonNull;
 
 @RestController
 @RequestMapping("/api/users")
@@ -36,7 +36,7 @@ public class UserController {
 
     @GetMapping("readUser/{email}")
     public ResponseEntity<?> getUserByEmail(@PathVariable String Email){
-        Optional<User>user=userService.getUserByEmail(Email);
+        Optional<User> user=userService.getUserByEmail(Email);
         return user.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
         .orElseGet(()-> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -46,8 +46,8 @@ public class UserController {
         return new ResponseEntity<>(users,HttpStatus.OK);
     }
     @PutMapping("update/{email}")
-    public ResponseEntity<User> updateUser(@NonNull @PathVariable String email,
-    @RequestBody UpdateRequest updateRequest){
+    public ResponseEntity<User> updateUser(@NonNull @RequestBody @PathVariable String email,
+     UpdateRequest updateRequest){
         User updated=userService.updatUser(email, updateRequest);
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }

@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.example.yogaacademy.dto.UpdateRequest;
 import com.example.yogaacademy.model.User;
 import com.example.yogaacademy.repository.UserRepo;
 
-import io.micrometer.common.lang.NonNull;
 
 @Service
 public class UserService {
