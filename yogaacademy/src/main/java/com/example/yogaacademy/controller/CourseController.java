@@ -30,7 +30,6 @@ public class CourseController {
     private CourseService courseService;
 
     @PostMapping("/createCourse")
-    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Course> createCourse(@NonNull @RequestBody Course course) {
         Course createdCourse = courseService.createCourse(course);
         return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
@@ -52,7 +51,7 @@ public class CourseController {
     }
 
     @PutMapping("updateCourse/{courseName}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public ResponseEntity<Course> updateCourse(@NonNull @PathVariable String courseName,
             @RequestBody Course courseUpdateRequest) {
         Course updated = courseService.updateCourse(courseName, courseUpdateRequest);

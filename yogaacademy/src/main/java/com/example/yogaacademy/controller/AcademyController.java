@@ -35,7 +35,7 @@ public class AcademyController {
     }
 
     @GetMapping("/readacademy/{academyId}")
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<?> getAcademyById(@PathVariable Long academyId) {
         Optional<Academy> academy = academyService.getAcademyById(academyId);
         return academy.map(value -> new ResponseEntity<>(value, HttpStatus.OK))

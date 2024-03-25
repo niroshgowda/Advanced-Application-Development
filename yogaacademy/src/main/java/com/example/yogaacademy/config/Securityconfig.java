@@ -29,15 +29,14 @@ public class Securityconfig {
                                 .csrf(AbstractHttpConfigurer::disable)
                                 .authorizeHttpRequests(
                                                 request -> request.requestMatchers("/api/users/createUser",
-                                                                "/api/auth/home",
                                                                 "/api/auth/authenticate").permitAll())
                                 .authorizeHttpRequests(request -> request
                                                 .requestMatchers("/v3/api-docs/**", "/swagger-ui.html",
                                                                 "/swagger-ui/**")
                                                 .permitAll())
                                 .authorizeHttpRequests(requests -> requests
-                                                .requestMatchers("/api/users/**", "/api/auth/**", "/api/course/**")
-                                                .authenticated())
+                                                .requestMatchers( "/api/auth/**", "/api/course/**","/api/users/**","/api/academy/**")
+                                                .authenticated())                                         
                                 .sessionManagement(session -> session
                                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                                 .authenticationProvider(authenticationProvider)

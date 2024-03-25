@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.yogaacademy.dto.UpdateRequest;
@@ -16,9 +17,13 @@ import com.example.yogaacademy.repository.UserRepo;
 public class UserService {
     @Autowired
     private UserRepo userRepo;
+    
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     //newUser
     public User createUser(@NonNull User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepo.save(user);
     }
  
@@ -38,7 +43,7 @@ public class UserService {
               .map(existingUser ->{
                 existingUser.setUsername(updateRequest.getUsername());
                 existingUser.setEmail(updateRequest.getEmail());
-                existingUser.setPassword(updateRequest.getPassword());
+                existingUser.setPassword(passwordEncoder.encode(updateRequest.getPassword()));
                 return userRepo.save(existingUser);
               })
               .orElseThrow(() -> new RuntimeException("User not found"));
